@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
+<head>
+    <title>Unauthenticated user</title>
+</head>
+<body>
+<h1>
+    Home for unauthenticated users.
+</h1>
+<p>For authenticated ones, please follow <a th:href="@{payment}">this link</a>.</p>
+<div sec:authorize="isAuthenticated()">
+    <form name="logoutForm" th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" />
+    </form>
+</div>
+</body>
+</html>
